@@ -13,7 +13,7 @@
             ID="fileexplorer1" ClientSideOnBeforeDownload ="beforeDownload"
             runat="server" 
             AjaxAction="FileExplorerFeatures.aspx/FileActionDefault"
-            Path="https://filebrowsercontent.blob.core.windows.net/blob1/Content/">
+            Path="https://<-----account name------->.blob.core.windows.net/<-----container name------->/Content/">
           <AjaxSettings> 
         <Upload Url="uploadFiles.ashx{0}" /> 
     </AjaxSettings>

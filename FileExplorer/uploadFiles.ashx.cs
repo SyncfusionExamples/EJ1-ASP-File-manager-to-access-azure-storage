@@ -28,9 +28,9 @@ namespace SyncfusionASPNETApplication9
         public async void ProcessRequest(HttpContext context)
         {
             CloudBlobContainer container;
-            string accountKey = "rbAvmn82fmt7oZ7N/3SXQ9+d9MiQmW2i1FzwAtPfUJL9sb2gZ/+cC6Ei1mkwSbMA1iVSy9hzH1unWfL0fPny0A==";
-            string accountName = "filebrowsercontent";
-            string blobName = "blob1";
+            string accountKey = "<-----account key------->";
+            string accountName = "<-----account name------->";
+            string blobName = "<-----container name------->";
             StorageCredentials creds = new StorageCredentials(accountName, accountKey);
             CloudStorageAccount account = new CloudStorageAccount(creds, useHttps: true);
             CloudBlobClient client = account.CreateCloudBlobClient();
@@ -45,7 +45,7 @@ namespace SyncfusionASPNETApplication9
                     for (int i = 0; i < uploadedFiles.Count; i++)
                     {
                         string fileName = uploadedFiles[i].FileName;
-                        string MyPath = path.Replace("https://filebrowsercontent.blob.core.windows.net/blob1/", "");
+                        string MyPath = path.Replace("https://<-----account name------->.blob.core.windows.net/<-----container name------->/", "");
                         CloudBlockBlob blob = container.GetBlockBlobReference(MyPath + fileName);
                         await container.SetPermissionsAsync(new BlobContainerPermissions
                         {

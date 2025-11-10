@@ -29,9 +29,9 @@ namespace SyncfusionASPNETApplication9.FileExplorer
         public static void Download(string path, string[] names)
         {
             CloudBlobContainer container;
-            string accountKey = "rbAvmn82fmt7oZ7N/3SXQ9+d9MiQmW2i1FzwAtPfUJL9sb2gZ/+cC6Ei1mkwSbMA1iVSy9hzH1unWfL0fPny0A==";
-            string accountName = "filebrowsercontent";
-            string blobName = "blob1";
+            string accountKey = "<-----account key------->";
+            string accountName = "<-----account name------->";
+            string blobName = "<-----container name------->";
             StorageCredentials creds = new StorageCredentials(accountName, accountKey);
             CloudStorageAccount account = new CloudStorageAccount(creds, useHttps: true);
             CloudBlobClient client = account.CreateCloudBlobClient();
@@ -40,7 +40,7 @@ namespace SyncfusionASPNETApplication9.FileExplorer
             HttpResponse response = HttpContext.Current.Response;
                     foreach (var blobFileName in names)
                     {
-                        string MyPath = path.Replace("https://filebrowsercontent.blob.core.windows.net/blob1/", "");
+                        string MyPath = path.Replace("https://<-----account name------->.blob.core.windows.net/<-----container name------->/", "");
                         CloudBlockBlob blockBlob = container.GetBlockBlobReference(MyPath + blobFileName);
                         using (var fileStream = System.IO.File.Create(@"D:\" + blobFileName)) // @"D:\" is the local path to where you wish to download the files
                 {
